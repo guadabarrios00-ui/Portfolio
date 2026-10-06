@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SolutionLabs · Guadalupe</title>
+  <meta name="description" content="WhatsApp de atención para comercios de barrio y pymes.">
+
+  <style>
+    /* ===== Colores y medidas (cambiás todo el look desde acá) ===== */
+    :root {
+      --tinta: #1b2b3a;      /* azul oscuro para títulos y fondos fuertes */
+      --papel: #f6f8f9;      /* fondo general */
+      --linea: #d5dfe5;      /* bordes suaves */
+      --suave: #e6eef2;      /* fondo de cajas */
+      --acento: #f0b429;     /* amarillo del botón y detalles */
+      --texto: #33424f;      /* texto de lectura */
+      --ancho: 44rem;        /* ancho máximo de lectura */
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--papel);
+      color: var(--texto);
+      font: 1.0625rem/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+
+    /* Contenedor central: en el celu ocupa todo, en la compu queda angosto */
+    .contenedor { max-width: var(--ancho); margin: 0 auto; padding: 0 1.25rem; }
+
+    /* ===== Encabezado con mi nombre ===== */
+    header { background: var(--tinta); color: #fff; padding: 2.5rem 0 2.25rem; }
+    header .marca { margin: 0; font-size: 1rem; color: var(--acento); font-weight: 700; }
+    header h1 { margin: .35rem 0 0; font-size: clamp(1.9rem, 6vw, 2.75rem); line-height: 1.15; }
+    header p { margin: .75rem 0 0; color: #c9d6df; }
+
+    /* ===== Secciones ===== */
+    section { padding: 2.75rem 0; border-bottom: 1px solid var(--linea); }
+    section h2 { margin: 0 0 .75rem; color: var(--tinta); font-size: clamp(1.4rem, 4.5vw, 1.8rem); line-height: 1.25; }
+    section p { margin: 0 0 1rem; max-width: 38rem; }
+
+    /* ===== Para quién: dos cajas, sí y no ===== */
+    .dos-cajas { display: grid; gap: 1rem; }
+    .caja { background: #fff; border: 1px solid var(--linea); border-left: 5px solid var(--tinta); border-radius: 6px; padding: 1rem 1.25rem; }
+    .caja h3 { margin: 0 0 .35rem; font-size: 1.05rem; color: var(--tinta); }
+    .caja p { margin: 0; }
+    .caja.no { border-left-color: var(--acento); }
+
+    /* ===== Demo: caja vacía con forma de pantalla de celular ===== */
+    .demo-vacia {
+      min-height: 18rem;
+      max-width: 22rem;
+      margin: 1.25rem auto 0;
+      background: var(--suave);
+      border: 2px dashed #9fb2bf;
+      border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 1.5rem; color: #5a6b78;
+    }
+
+    /* ===== Cómo trabajo: pasos (esto sí es una secuencia, por eso va numerado) ===== */
+    ol.pasos { margin: 0; padding-left: 1.4rem; }
+    ol.pasos li { margin-bottom: .6rem; padding-left: .3rem; }
+    ol.pasos li::marker { color: var(--tinta); font-weight: 700; }
+
+    /* ===== Preguntas frecuentes (se abren y cierran solas, sin JS) ===== */
+    details { background: #fff; border: 1px solid var(--linea); border-radius: 6px; margin-bottom: .6rem; }
+    summary { cursor: pointer; padding: .9rem 1.1rem; font-weight: 600; color: var(--tinta); }
+    details[open] summary { border-bottom: 1px solid var(--linea); }
+    details p { margin: 0; padding: .9rem 1.1rem; }
+
+    /* ===== Botón final ===== */
+    .cta { background: var(--tinta); color: #fff; text-align: center; border-bottom: 0; }
+    .cta h2 { color: #fff; }
+    .cta p { margin-left: auto; margin-right: auto; color: #c9d6df; }
+    .boton {
+      display: inline-block; background: var(--acento); color: var(--tinta);
+      font-weight: 700; font-size: 1.1rem; text-decoration: none;
+      padding: .95rem 1.75rem; border-radius: 8px;
+    }
+    .boton:hover { background: #f7c64f; }
+    #aviso-link { margin-top: 1rem; font-size: .95rem; min-height: 1.4em; }
+
+    /* Foco visible para quien navega con teclado */
+    a:focus-visible, summary:focus-visible, .boton:focus-visible { outline: 3px solid var(--acento); outline-offset: 3px; }
+
+    footer { text-align: center; padding: 1.5rem 1rem; font-size: .9rem; color: #5a6b78; }
+
+    /* ===== Pantallas más grandes ===== */
+    @media (min-width: 40rem) {
+      .dos-cajas { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== ENCABEZADO: mi nombre ===== -->
+  <header>
+    <div class="contenedor">
+      <p class="marca">SolutionLabs</p>
+      <h1>Soy Guadalupe de SolutionLabs</h1>
+      <p>Soluciones digitales para negocios y emprendimientos.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== 1) PRESENTACIÓN: quién soy y qué ofrezco ===== -->
+    <section id="presentacion">
+      <div class="contenedor">
+        <h2>Quién soy y qué ofrezco</h2>
+        <p>Texto de ejemplo: acá va una breve presentación y qué hace el WhatsApp de atención por tu negocio.</p>
+      </div>
+    </section>
+
+    <!-- ===== 2) PARA QUIÉN SÍ / PARA QUIÉN NO ===== -->
+    <section id="para-quien">
+      <div class="contenedor">
+        <h2>Para quién sí / para quién no</h2>
+        <div class="dos-cajas">
+          <div class="caja">
+            <h3>Sí</h3>
+            <p>Texto de ejemplo: los negocios a los que les sirve.</p>
+          </div>
+          <div class="caja no">
+            <h3>No</h3>
+            <p>Texto de ejemplo: los casos donde no conviene.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 3) DEMO (antes y después): caja vacía por ahora ===== -->
+    <section id="demo">
+      <div class="contenedor">
+        <h2>Demo (antes y después)</h2>
+        <p>Texto de ejemplo: una línea que explique qué se va a ver acá.</p>
+        <!-- Más adelante, esta caja se reemplaza por la demo -->
+        <div class="demo-vacia" role="img" aria-label="Espacio reservado para la demo">
+          <span>Acá va la demo</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4) CÓMO TRABAJO, PASO A PASO ===== -->
+    <section id="como-trabajo">
+      <div class="contenedor">
+        <h2>Cómo trabajo, paso a paso</h2>
+        <p>Texto de ejemplo: una frase corta que cuente cómo es el proceso.</p>
+        <ol class="pasos">
+          <li>Paso 1 (texto de ejemplo)</li>
+          <li>Paso 2 (texto de ejemplo)</li>
+          <li>Paso 3 (texto de ejemplo)</li>
+          <li>Paso 4 (texto de ejemplo)</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== 5) CÓMO SE ARMA UN PRESUPUESTO ===== -->
+    <section id="presupuesto">
+      <div class="contenedor">
+        <h2>Cómo se arma un presupuesto</h2>
+        <p>Texto de ejemplo: el número se habla en una reunión de a dos, después de ver la demo, nunca antes.</p>
+      </div>
+    </section>
+
+    <!-- ===== 6) PREGUNTAS FRECUENTES (las 6 objeciones) ===== -->
+    <section id="preguntas">
+      <div class="contenedor">
+        <h2>Preguntas frecuentes</h2>
+        <details>
+          <summary>¿Esto reemplaza a una persona?</summary>
+          <p>Respuesta de ejemplo.</p>
+        </details>
+        <details>
+          <summary>¿Y si contesta cualquier cosa?</summary>
+          <p>Respuesta de ejemplo.</p>
+        </details>
+        <details>
+          <summary>¿Tengo que cambiar mi número?</summary>
+          <p>Respuesta de ejemplo.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto cuesta?</summary>
+          <p>Respuesta de ejemplo.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa si cambian mis precios?</summary>
+          <p>Respuesta de ejemplo.</p>
+        </details>
+        <details>
+          <summary>¿Y si no me convence?</summary>
+          <p>Respuesta de ejemplo.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===== 7) BOTÓN PARA AGENDAR ===== -->
+    <section id="reunion" class="cta">
+      <div class="contenedor">
+        <h2>Hablemos 20 minutos</h2>
+        <p>Texto de ejemplo: sin compromiso, vemos tu caso.</p>
+        <a id="boton-reunion" class="boton" href="#reunion">Agendá una reunión de 20 minutos</a>
+        <p id="aviso-link" role="status"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="contenedor">© <span id="anio"></span> SolutionLabs · Guadalupe</div>
+  </footer>
+
+  <script>
+    /* ===== Link de la reunión =====
+       Cuando tengas el link de tu agenda, pegalo entre las comillas.
+       Mientras esté vacío, el botón no lleva a ningún lado y avisa. */
+    var LINK_REUNION = "";
+
+    var boton = document.getElementById("boton-reunion");
+    var aviso = document.getElementById("aviso-link");
+
+    if (LINK_REUNION) {
+      boton.href = LINK_REUNION;
+    } else {
+      boton.addEventListener("click", function (e) {
+        e.preventDefault();
+        aviso.textContent = "Todavía falta cargar el link de la agenda.";
+      });
+    }
+
+    /* Año del pie de página */
+    document.getElementById("anio").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
